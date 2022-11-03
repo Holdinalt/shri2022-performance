@@ -21,6 +21,8 @@
         function selectTab(newId) {
             let tabIndex = list.findIndex(elem => elem === newId)
 
+            // gh pages работай!!
+
             const newTab = tabs[tabIndex];
             const newPanel = panels[tabIndex] // может сломать отображение
 
