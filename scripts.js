@@ -6,17 +6,23 @@
     }
 
     function makeTabs(node) {
-        let selected = node.querySelector('.section__tab_active').dataset.id;
-        const tabs = node.querySelectorAll('.section__tab');
-        const list = Array.from(tabs).map(node => node.dataset.id);
-        const select = node.querySelector('.section__select');
+        let selected = node.querySelector('.section__tab_active').dataset.id; // string
+
+        const tabs = node.querySelectorAll('.section__tab'); // [node, node]
+        const list = Array.from(tabs).map(node => node.dataset.id); // [string, string]
+
+        const panels = node.querySelectorAll('.section__panel'); // [node, node]
+
+        const select = node.querySelector('.section__select'); // node
 
         let oldTab = node.querySelector('.section__tab_active');
         let oldPanel = node.querySelector('.section__panel:not(.section__panel_hidden)');
 
         function selectTab(newId) {
-            const newTab = node.querySelector(`.section__tab[data-id=${newId}]`);
-            const newPanel = node.querySelector(`.section__panel[data-id=${newId}]`);
+            let tabIndex = list.findIndex(elem => elem === newId)
+
+            const newTab = tabs[tabIndex];
+            const newPanel = panels[tabIndex] // может сломать отображение
 
             selected = newId;
 
