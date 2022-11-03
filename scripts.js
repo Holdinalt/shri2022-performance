@@ -19,7 +19,7 @@
         let oldPanel = node.querySelector('.section__panel:not(.section__panel_hidden)');
 
         function selectTab(newId) {
-            let tabIndex = list.findIndex(elem => elem === newId)
+            let tabIndex = list.indexOf(newId)
 
             // gh pages работай!!
 
