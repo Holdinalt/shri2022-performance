@@ -18,8 +18,6 @@
             const newTab = node.querySelector(`.section__tab[data-id=${newId}]`);
             const newPanel = node.querySelector(`.section__panel[data-id=${newId}]`);
 
-            console.log(oldTab)
-
             selected = newId;
 
             oldTab.classList.remove('section__tab_active');
@@ -68,12 +66,11 @@
             }
 
             if (index >= list.length) {
-                index = 0;
+                selectTab(list[0]);
             } else if (index < 0) {
-                index = list.length - 1;
+                selectTab(list.at(-1));
             }
 
-            selectTab(list[index]);
             event.preventDefault();
         });
     }
@@ -81,11 +78,12 @@
     function makeMenu(node) {
         let expanded = false;
         const links = document.querySelector('.header__links');
+        const headerMenuTextNode = node.querySelector('.header__menu-text');
 
         node.addEventListener('click', () => {
             expanded = !expanded;
             node.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            node.querySelector('.header__menu-text').textContent = expanded ? 'Закрыть меню' : 'Открыть меню';
+            headerMenuTextNode.textContent = expanded ? 'Закрыть меню' : 'Открыть меню';
             links.classList.toggle('header__links_opened', expanded);
             links.classList.add('header__links-toggled');
         });
