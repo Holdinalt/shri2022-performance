@@ -11,11 +11,14 @@
         const list = Array.from(tabs).map(node => node.dataset.id);
         const select = node.querySelector('.section__select');
 
+        let oldTab = node.querySelector('.section__tab_active');
+        let oldPanel = node.querySelector('.section__panel:not(.section__panel_hidden)');
+
         function selectTab(newId) {
             const newTab = node.querySelector(`.section__tab[data-id=${newId}]`);
             const newPanel = node.querySelector(`.section__panel[data-id=${newId}]`);
-            const oldTab = node.querySelector('.section__tab_active');
-            const oldPanel = node.querySelector('.section__panel:not(.section__panel_hidden)');
+
+            console.log(oldTab)
 
             selected = newId;
 
@@ -33,6 +36,9 @@
             oldPanel.setAttribute('aria-hidden', 'true');
             newPanel.classList.remove('section__panel_hidden');
             newPanel.setAttribute('aria-hidden', 'false');
+
+            oldTab = newTab
+            oldPanel = newPanel
 
             select.value = newId;
         }
