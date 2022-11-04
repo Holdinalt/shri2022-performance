@@ -102,4 +102,8 @@
         Array.from(document.querySelectorAll('.header__menu')).forEach(makeMenu);
     });
 
+    if(document.body.clientWidth >= 768 ){
+        document.querySelector("link[rel=stylesheet][href='mobile_styles.css']").outerHTML = "";
+    }
+
 })();

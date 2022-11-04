@@ -15,11 +15,9 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<link rel="stylesheet" href="mobile_styles.css" media="screen and (max-width:768px)">
-
-<link rel="preload" type="text/css" as="style" href="animation.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" type="text/css" as="style" href="mobile_styles.css" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript>
-    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="mobile_styles.css" media="not(screen and (max-width:768px))">
 </noscript>
 
 <!--<link rel="preload" href="vendors/bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">-->
@@ -28,6 +26,11 @@
 <!--</noscript>-->
 
 <body>
+
+<link rel="preload" type="text/css" as="style" href="animation.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
+    <link rel="stylesheet" href="animation.css">
+</noscript>
 
 <header class="header">
     <a href="/" class="header__logo" aria-label="Яндекс.Дом"></a>
